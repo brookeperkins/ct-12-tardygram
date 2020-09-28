@@ -13,8 +13,11 @@ jobs:
           POSTGRES_PASSWORD: alchemy
     steps:
     - uses: actions/checkout@v2
+      with: 
+          persist-credentials: false
     - run: npm ci
     - run: npm test
       env:
         CI: true
         DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
+
